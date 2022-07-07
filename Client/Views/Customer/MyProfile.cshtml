@@ -1,0 +1,120 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_LayoutAdmin";
+
+}
+<div class="header bg-gradient-green pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                    <h6 class="h2 text-white d-inline-block mb-0">My Profile</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@{
+    var userId = User.Claims.Where(x => x.Type.Equals("UserId")).FirstOrDefault().Value;
+    <div class="form-row" hidden>
+        <div class="col-md-12 mb-3">
+            <label for="inputUserId">User ID</label>
+            <input type="text" class="form-control" placeholder="User Id" value="@userId" id="UserId" required>
+        </div>
+    </div>
+}
+
+
+<!--Container Card-->
+<div class="container-fluid mt--6">
+    <div class="row justify-content-center">
+        <div class="card" style="width:600px;">
+            <div class="card-header">
+                Information Account
+            </div>
+            <div class="card-body">
+                <form id="formMyProfile">
+                    <div class="row">
+                        <div class="col-sm-12 px-lg-5">
+                            <div hidden class="form-group mb-3">
+                                <div class="input-group input-group-merge input-group-alternative">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input hidden class="form-control" placeholder="First Name" type="text" id="myUserId" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group mb-3">
+                                        <div class="input-group input-group-merge input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            </div>
+                                            <input class="form-control" placeholder="First Name" type="text" id="myFirstName" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group mb-3">
+                                        <div class="input-group input-group-merge input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            </div>
+                                            <input class="form-control" placeholder="Last Name" type="text" id="myLastName" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div class="input-group input-group-merge input-group-alternative">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
+                                    </div>
+                                    <select class="form-control" id="myGender" required>
+                                        <option selected disabled value="">Select Gender</option>
+                                        <option value="0">Male</option>
+                                        <option value="1">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div class="input-group input-group-merge input-group-alternative">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
+                                    </div>
+                                    <input type="date" class="form-control" id="myBirthDate" required>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div class="input-group input-group-merge input-group-alternative">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Phone Number" id="myPhone" required>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div class="input-group input-group-merge input-group-alternative">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                    </div>
+                                    <input class="form-control" placeholder="Email" type="email" id="myEmail" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary my-2">Change</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+
+            </div>
+        </div>
+
+    </div>      
+</div>
+    <!--Container Card end-->
